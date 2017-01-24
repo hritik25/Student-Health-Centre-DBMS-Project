@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Information</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+body{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 16px;
+}
+</style>
+</head>
+<body>
+<div style="height:85px;width:100%;background-color:#1f3;margin-top:-10px">
+   <h2 style="padding-left:550px;padding-top:25px"> STUDENT HEALTH CENTRE</h2>
+   <h3 style="padding-left:559px;padding-top:25px"> Student Database Administration</h3>
+<br><div style="padding-top:10px;padding-left:500px">
+<div style="padding-top:10px">
+<h1>Student Information Page</h1>
+<br>
+<br>
+Roll No. - <b>{{student.roll_no}}</b>
+<br>
+<br>
+Name - <b>{{student.full_name}}</b>
+<br>
+<br>
+Gender - <b>{{student.gender}}</b>
+<br>
+<br>
+Faculty- <b>{{student.faculty}}</b>
+<br>
+<br>
+Year - <b>{{student.year}}</b>
+<br>
+<br>
+DOB - <b>{{student.DOB}}</b>
+<br>
+<br>
+Blood Group - <b>{{student.blood_group}}</b>
+<br>
+<br>
+Diary Issue Date - <b>{{student.diary_issue_date}}</b>
+<br>
+<br>
+Diary Valid Through - <b>{{student.diary_valid_through}}</b>
+<br>
+<br>
+Phone Number - <b>{{student.phone_number}}</b>
+</div>
+</div>
+{% if validity_issue %}
+<div style="padding-top:10px;padding-left:250px">
+	<h2><font color="red">{{ validity_issue }}</font></h2>
+</div>
+<div style="padding-top:10px;padding-left:500px">
+	<form method="post">
+			{% csrf_token %}
+			<button type="submit" name="renew" value = "{{student.roll_no}}">Renew</button>
+	</form>	
+</div>
+{% endif %}
+<br>
+<div style="padding-top:10px;padding-left:500px">
+<h3><a style="text-decoration:none" href='/studentdb'>Back to Home</a></h3>
+</div>
+</body>
+</html>

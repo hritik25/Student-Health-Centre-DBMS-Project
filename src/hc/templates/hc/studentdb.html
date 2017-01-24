@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Database Administration</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+body{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 15px;
+}
+</style>
+</head>
+<body>
+<div style="height:85px;width:100%;background-color:#1f3;margin-top:-10px">
+   <h2 style="padding-left:550px;padding-top:25px"> STUDENT HEALTH CENTRE</h2>
+   <h3 style="padding-left:559px;padding-top:25px"> Student Database Administration</h3>
+<br><div style="padding-top:80px">
+<h1 style ="padding-left:280px">Welcome to Health Centre Student Database Administration</h1>
+<br>
+{% csrf_token %}
+<h2><a style ="padding-left:430px" href="/addstudent">Register New Student for Health Centre Facilities</a></h2>
+<br>
+<br>
+
+<form method="post" style="padding-left:400px;padding-top:20px;">
+			{% csrf_token %}
+			Get a Registered Student's Information : <input type="text" max="10" name="roll_no" placeholder = "Enter Roll No." required/>
+			<button type="submit" name="show">Show</button>
+</form>
+<form method="post" style="padding-left:630px ;padding-top:20px">
+			{% csrf_token %}
+			<button type="submit" name="logout">Log Out</button>
+</form>
+
+</div>
+</body>
+</html>

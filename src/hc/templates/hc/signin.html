@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Sign In</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+body{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+</style>
+</head>
+	<body>
+	<div style="height:85px;width:100%;background-color:#1f3;margin-top:-10px">
+   	<h2 style="padding-left:550px;padding-top:25px"> STUDENT HEALTH CENTRE</h2>
+	<br>
+		<h2 style="padding-left:560;padding-top:90px">Please Login-</h3>
+		<div style="padding-left:500px ;font-size:20px">
+		<form method="post">
+			{% csrf_token %}
+			Username: <input style="pddding-top:70px" type="text" name="username" value="{{ username }}" required/><br>
+			Password: <input type="password" name="password" required/><br>
+			<div style="padding-top:10px;padding-left:100px" ><button  type="submit">Login</button></div>
+		</form>
+		</div>
+	</body>
+</html>

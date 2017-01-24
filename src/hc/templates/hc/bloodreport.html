@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blood Report</title>
+</head>
+<body>
+<div style="height:85px;width:100%;background-color:#1f3;margin-top:-10px">
+   <h2 style="padding-left:550px;padding-top:25px"> STUDENT HEALTH CENTRE</h2>
+   <h2 style="padding-left:570px;padding-top:25px"> Pathology Department</h2>
+<br><div style="padding-top:80px;padding-left:500px">
+<form method="post" enctype = "multipart/form-data">
+			{% csrf_token %}
+			<h3>Upload file:   <input type="file" name="blood_report" required/></h3><br>
+			<button type="submit" name="save">Add</button>
+</form>
+<br>
+<a style="text-decoration:none" href="/pathology">Back</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+body{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 15px;
+}
+</style>
+</head>
+<body>
+<div style="height:85px;width:100%;background-color:#1f3;margin-top:-10px">
+   <h2 style="padding-left:520px;padding-top:25px"> STUDENT HEALTH CENTRE</h2>
+   <h3 style="padding-left:600px;padding-top:25px">RECEPTION</h3>
+<br><div style="padding-top:80px;padding-left:500px">
+	<h3>Roll No. - {{ entry.student_id.roll_no }}</h3>
+	Entry created at - <b>{{ entry.entry_time }}</b>
+	<br>
+	<br>
+	<br>
+	<a style="text-decoration:none" href="/newentry">Create Another Entry</a>
+	<br>
+	<br>
+	<a style="text-decoration:none" href="/newentry">Back to Reception Home</a>
+	<br>
+</div>
+</body>
+</html>

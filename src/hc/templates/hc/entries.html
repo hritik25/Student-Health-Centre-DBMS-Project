@@ -1,0 +1,63 @@
+<html>
+<head>
+<title>Entries</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+table , th , td { border:1px solid black ; border-collapse:collapse }
+	th , td { padding:5px;}
+body{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 15px;
+}
+</style>
+</head>
+	<body>
+	<div style="height:85px;width:100%;background-color:#1f3;margin-top:-10px">
+   	<h2 style="padding-left:520px;padding-top:25px"> STUDENT HEALTH CENTRE</h2>
+   	<h3 style="padding-left:600px;padding-top:25px">RECEPTION</h3>
+	<br><div style="padding-top:10px;padding-left:500px">
+		<form method="post">
+		{% csrf_token %}
+			<h3>Search by Roll No.</h3>
+			<input type="text" name="roll_no" placeholder = "Enter Roll. No."/>
+			<button type="submit" name="search-by-roll">Go</button>
+		</form>	
+		<form method="post">
+		{% csrf_token %}
+			<h3>Search by date</h3>
+			<input type="date" name="date"/>
+			<button type="submit" name="search-by-date">Go</button>
+		</form>
+		<br>
+		<form method="post">
+		{% csrf_token %}
+			<button type="submit" name="back">Back to Reception Home</button>
+		</form>
+		</div>	
+		<br>
+		<br>
+		{% if entries %}
+			<h2>{{ reference }}</h2>
+			<table style="padding-top:-80px">
+			<tr><th>Entry time</th><th>Student Roll No.</th><th>Last Updated At</th><th>Last Updated By</th><th>Blood Report</th><th>X-Ray Report</th><th>Stay Due To</th><th>Stay Duration(Days)</th><th>Bed No.</th></tr>
+			{% for entry in entries %}
+			<tr>
+				<td>{{ entry.entry_time }}</td><td>{{ entry.student_id.roll_no }}</td><td>{{ entry.updated }}</td><td>{{ entry.last_updated_by }}</td>
+				<td>
+				{% if entry.blood_test_report %}
+					<a style="text-decoration:none" href="/media/{{ entry.blood_test_report }}">Blood Report</a>
+				{% endif %}
+				</td>
+				<td>
+				{% if entry.xray_report %}
+					<a style="text-decoration:none" href="/media/{{ entry.xray_report }}">X-Ray Report</a>
+				{% endif %}
+				</td>
+				<td>{{ entry.stay_cause }}</td><td>{{ entry.stay_day }}</td><td>{{ entry.stay_bed }}</td>
+				</tr>
+			{% endfor %}
+			</table>
+		{% endif %}		
+		<br>
+	</body>
+</html>
